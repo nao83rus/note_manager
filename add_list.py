@@ -1,9 +1,6 @@
 username = input("Введите Ваше имя: ")
 title = input("Введите заголовок заметки: ")
-content1 = input("Основные темы: ")
-content2 = input("Персонажи: ")
-content3 = input("Рекомендации для чтения: ")
-content = [content1, content2, content3]
+content = [input("Основные темы: "), input("Персонажи: "), input("Рекомендации для чтения: ")]
 status = input("Введите статус заметки: ")
 created_date = input('Введите дату начала в формате \"дата-месяц-год\": ')
 issue_date = input('Введите дату окончания в формате \"дата-месяц-год\": ')
