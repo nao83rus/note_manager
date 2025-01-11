@@ -7,10 +7,16 @@ print('Текущая дата: ', today)
 while True:
     try:
         # Запрашиваем дату дедлайна у пользователя
-        issue_date = input("Введите дату дедлайна (в формате день-месяц-год, например 31-01-2025): ")
-
-        # Преобразуем строку с датой в объект datetime
-        deadline_date = datetime.strptime(issue_date, "%d-%m-%Y")
+        issue_date = input("Введите дату дедлайна (например 31-01-2025 или 2025-01-31) или пустую строку для остановки программы: ")
+        print(issue_date)
+        # Проверяем в каком формате введена дата и преобразуем строку с датой в объект datetime
+        if issue_date == '':
+            print("Введена пустая строка - программа остановлена.")
+            break
+        elif issue_date[5] == '-':
+            deadline_date = datetime.strptime(issue_date, "%d-%m-%Y")
+        elif issue_date[7] == '-':
+            deadline_date = datetime.strptime(issue_date, "%Y-%m-%d")
         # Вычисляем разницу между текущей датой и дедлайном. Учитываем только дату без времени.
         time_difference = deadline_date.date() - today.date()
         days_difference = time_difference.days
