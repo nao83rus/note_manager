@@ -1,5 +1,6 @@
 # Grade 1. Этап 2: Задание 4 Реализуем возможность создания и хранения нескольких заметок в списке.
 from datetime import datetime
+
 # Создаём пустой список заметок
 notes = []
 while True:
@@ -16,7 +17,7 @@ while True:
             status = status.lower()
             # Проверяем корректность ввода статуса
             if status == '1' or status.lower() == 'новая':
-                status= 'новая'
+                status = 'новая'
                 break
             elif status == '2' or status.lower() == 'в процессе':
                 status = 'в процессе'
@@ -64,7 +65,7 @@ while True:
         note = dict(zip(heading, note_data))
         notes.append(note)
     else:
-        break # Если ответ не положительный - прерываем цикл
+        break  # Если ответ не положительный - прерываем цикл
 # Выводим список созданных заметок на экран
 for note_number in notes:
     print("Заметка: ", note_number)
