@@ -67,5 +67,7 @@ while True:
     else:
         break  # Если ответ не положительный - прерываем цикл
 # Выводим список созданных заметок на экран
+number = 0
 for note_number in notes:
-    print("Заметка: ", note_number)
+    number = number + 1
+    print("Заметка {}: {}".format(number, note_number))
