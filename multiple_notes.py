@@ -15,7 +15,14 @@ while True:
             status = input("Введите статус заметки (1. новая, 2. в процессе, 3. выполнено): ")
             status = status.lower()
             # Проверяем корректность ввода статуса
-            if status == '1' or status == 'новая' or status == '2' or status == 'в процессе' or status == '3' or status == 'выполнено':
+            if status == '1' or status == 'новая':
+                status= 'новая'
+                break
+            elif status == '2' or status == 'в процессе':
+                status = 'в процессе'
+                break
+            elif status == '3' or status == 'выполнено':
+                status = 'выполнено'
                 break
             else:
                 print("Введён неверный статус, попробуйте еще раз.")
