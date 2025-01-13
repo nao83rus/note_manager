@@ -1,45 +1,81 @@
 # Grade 1. Этап 2: Задание 5 Удаление заметок
-notes = []
-heading = ["Имя", "Заголовок", "Комментарий"]
+notes = [
+    {
+        'id': 1,
+        'username': 'Алексей',
+        'title': 'Список покупок',
+        'description': 'Купить продукты на неделю'
+    },
+    {
+        'id': 2,
+        'username': 'Мария',
+        'title': 'Учеба',
+        'description': 'Подготовиться к экзамену'
+    },
+    {
+        'id': 3,
+        'username': 'Алексей',
+        'title': 'Встреча',
+        'description': 'Встреча с друзьями'
+    }
+]
 
-# Добавим несколько заметок
-note_data = ["Владимр", "Домашка", "Задание 5"]
-note = dict(zip(heading, note_data))
-notes.append(note)
-note_data = ["Андрей", "Магазин", "Купить молоко"]
-note = dict(zip(heading, note_data))
-notes.append(note)
-note_data = ["Александр", "Тренировка", "Бассейн"]
-note = dict(zip(heading, note_data))
-notes.append(note)
+# Вывод текущего списка заметок
+print("Текущие заметки:")
+for note in notes:
+    print(f"{note['id']}. Имя: {note['username']}")
+    print(f"   Заголовок: {note['title']}")
+    print(f"   Описание: {note['description']}\n")
 
-# Ввыод на экран текущих заметок
-def print_notes(notes):
-    number = len(notes)
-    while number > 0:
-        print("Заметка", number)
-        number = number - 1
-        note_tmp = notes[number]
-        print(note_tmp.items())
+# Запрос критерия для удаления
+search_term = input("Введите имя пользователя или заголовок для удаления заметки: ")
 
-print_notes(notes)
+# Проверка, что ввод не пустой
+if not search_term:
+    print("Ошибка: критерий поиска не может быть пустым.")
+else:
+    # Создаем новый список для хранения заметок, которые нужно оставить
+    notes_to_keep = []
+    notes_to_delete = []
 
-# Удаление заметок
-del_answer = input("Для удаления заметки нажмите 1 или другое, чтобы выйти: ")
-if del_answer == "1":
-    del_keys = input("Введите значение для поиска и удаления: ")
-    # Получим количество элементов списка заметок
-    num = len(notes)
-    while num > 0:
-        num = num - 1
-        try:
-            # Извлечем словари из списка
-            list_tmp = notes[num]
-            # Получим значения ключей словаря и проверим на содержание искомой строки
-            tmp = list_tmp.values()
-            if del_keys in tmp:
-                # Нашли искомую строку в значениях ключей, удаляем словарь
-                notes.remove(list_tmp)
-        except KeyError:
-            pass
-print_notes(notes)
+    # Поиск заметок для удаления
+    for note in notes:
+        if note['username'] == search_term or note['title'] == search_term:
+            notes_to_delete.append(note)
+        else:
+            notes_to_keep.append(note)
+
+    # Проверка, найдены ли заметки для удаления
+    if not notes_to_delete:
+        print("Заметок с таким именем пользователя или заголовком не найдено.")
+    else:
+        # Вывод заметок, которые будут удалены
+        print("\nСледующие заметки будут удалены:")
+        for note in notes_to_delete:
+            print(f"{note['id']}. Имя: {note['username']}")
+            print(f"   Заголовок: {note['title']}")
+            print(f"   Описание: {note['description']}\n")
+
+        # Запрос подтверждения удаления
+        confirm = input("Вы уверены, что хотите удалить эти заметки? (да/нет): ")
+
+        if confirm == 'да':
+            # Обновление списка заметок
+            notes = notes_to_keep
+
+            # Обновление ID заметок
+            for i, note in enumerate(notes, 1):
+                note['id'] = i
+
+            # Вывод результата
+            print("\nЗаметки успешно удалены.")
+            if notes:
+                print("\nОстались следующие заметки:")
+                for note in notes:
+                    print(f"{note['id']}. Имя: {note['username']}")
+                    print(f"   Заголовок: {note['title']}")
+                    print(f"   Описание: {note['description']}\n")
+            else:
+                print("Список заметок пуст.")
+        else:
+            print("\nУдаление отменено.")
