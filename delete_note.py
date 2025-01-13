@@ -38,9 +38,9 @@ if del_answer == "1":
         num = num - 1
         try:
             list_tmp = notes[num]
-            # print(list_tmp)
-            del list_tmp[del_keys]
-            notes.remove(list_tmp)
+            tmp = list_tmp.values()
+            if del_keys in tmp:
+                notes.remove(list_tmp)
             # print(notes[num])
         except KeyError:
             pass
