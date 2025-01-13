@@ -23,11 +23,25 @@ notes.append(note)
 #         notes.append(dict(zip(note_title, note_data)))
 #     else:
 #         break
-number = 0
-for note_number in notes:
-    number = number + 1
-    print(notes)
+# number = 0
+# for note_number in notes:
+#     number = number + 1
+#     print(notes)
 
 # Удаление заметок
 del_answer = input("Для удаления заметки нажмите 1 или другое, чтобы выйти: ")
 if del_answer == "1":
+    del_keys = "Владимр" #input("Введите значение для поиска и удаления: ")
+    # notes.remove(del_keys)
+    num = len(notes)
+    while num > 0:
+        num = num - 1
+        try:
+            list_tmp = notes[num]
+            # print(list_tmp)
+            del list_tmp[del_keys]
+            notes.remove(list_tmp)
+            # print(notes[num])
+        except KeyError:
+            pass
+print(notes)
