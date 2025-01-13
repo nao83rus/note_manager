@@ -20,12 +20,15 @@ notes = [
     }
 ]
 
-# Вывод текущего списка заметок
+# Вывод списка заметок
+def print_notes(notes):
+    for note in notes:
+        print(f"{note['id']}. Имя: {note['username']}")
+        print(f"   Заголовок: {note['title']}")
+        print(f"   Описание: {note['description']}\n")
+
 print("Текущие заметки:")
-for note in notes:
-    print(f"{note['id']}. Имя: {note['username']}")
-    print(f"   Заголовок: {note['title']}")
-    print(f"   Описание: {note['description']}\n")
+print_notes(notes)
 
 # Запрос критерия для удаления
 search_term = input("Введите имя пользователя или заголовок для удаления заметки: ")
@@ -71,10 +74,8 @@ else:
             print("\nЗаметки успешно удалены.")
             if notes:
                 print("\nОстались следующие заметки:")
-                for note in notes:
-                    print(f"{note['id']}. Имя: {note['username']}")
-                    print(f"   Заголовок: {note['title']}")
-                    print(f"   Описание: {note['description']}\n")
+                print_notes(notes)
+
             else:
                 print("Список заметок пуст.")
         else:
