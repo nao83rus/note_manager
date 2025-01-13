@@ -75,7 +75,6 @@ else:
             if notes:
                 print("\nОстались следующие заметки:")
                 print_notes(notes)
-
             else:
                 print("Список заметок пуст.")
         else:
