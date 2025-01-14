@@ -1,3 +1,17 @@
+Grade 1. Этап 2
+
+add_titles_loop.py Grade 1. Этап 2: Задание 1 Цикл для добавления заголовков
+
+update_status.py Grade 1. Этап 2: Задание 2 Проверка и обновление статуса заметки
+
+check_deadline.py Grade 1. Этап 2: Задание 3 Проверка дедлайна
+
+multiple_notes.py Grade 1. Этап 2: Задание 4 Реализуем возможность создания и хранения нескольких заметок в списке.
+
+delete_note.py Grade 1. Этап 2: Задание 5 Удаление заметок
+
+Grade 1. Этап 1
+
 greetings.py (Задание 1)
 Созданы базовые переменные для заметки: username, title, content, status, created_date, issue_date.
 Вывод значений организован через print.
