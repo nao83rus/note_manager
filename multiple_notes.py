@@ -5,12 +5,12 @@ from datetime import datetime
 notes = []
 while True:
     # Спрашиваем, хочет ли пользователь добавить заметку.
-    answer = input('Создать заметку? (введите: "1", "да" или "yes", чтобы создать. Или другое для выхода).\n')
+    answer = input('Добро пожаловать в "Менеджер заметок"! Создать заметку? (введите: "1", "да" или "yes", чтобы создать. Или другое для выхода).\n')
     # Если ответ положительный - создаем заметку
     if answer.lower() == 'да' or answer.lower() == 'yes' or answer == '1':
-        heading = ["username", "content", "description", "status", "created_date", "deadline_date"]
+        heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
         username = input("ВВведите имя пользователя: ")
-        content = input("Введите содержание заметки: ")
+        content = input("Введите заголовок заметки: ")
         description = input("Введите описание заметки: ")
         while True:
             status = input("Введите статус заметки (1. новая, 2. в процессе, 3. выполнено): ")
@@ -46,7 +46,7 @@ while True:
                 print("Пожалуйста, попробуйте снова.")
         while True:
             try:
-                deadline_tmp = input('Введите дату создания (ДД-ММ-ГГГГ или ГГГГ-ММ-ДД): ')
+                deadline_tmp = input('Введите дату дедлайна (ДД-ММ-ГГГГ или ГГГГ-ММ-ДД): ')
                 if deadline_tmp[5] == '-':
                     if datetime.strptime(deadline_tmp, "%d-%m-%Y"):
                         deadline_date = datetime.strptime(deadline_tmp, "%d-%m-%Y")
@@ -61,13 +61,19 @@ while True:
                 # Обработка прочих ошибок
                 print(f"Произошла непредвиденная ошибка: {str(e)}")
                 print("Пожалуйста, попробуйте снова.")
-        note_data = [username, content, description, status, created_date, deadline_date]
+        note_data = [username, content, description, status, created_date.date(), deadline_date.date()]
         note = dict(zip(heading, note_data))
         notes.append(note)
     else:
         break  # Если ответ не положительный - прерываем цикл
 # Выводим список созданных заметок на экран
-number = 0
-for note_number in notes:
-    number = number + 1
-    print("Заметка {}: {}".format(number, note_number))
+counter = 1
+for note in notes:
+    print(f"Заметка {counter}.")
+    print(f"        Имя: {note['username']}")
+    print(f"        Заголовок: {note['title']}")
+    print(f"        Описание: {note['description']}")
+    print(f"        Статус: {note['status']}")
+    print(f"        Дата создания: {note['created_date']}")
+    print(f"        Дедлайн: {note['deadline_date']}")
+    counter = counter + 1

@@ -1,4 +1,6 @@
-note_titles = [] # создали пустой список заголовков
+# Grade 1. Этап 2: Задание 1 add_titles_loop.py: Цикл для добавления заголовков
+# создадим пустой список заголовков
+note_titles = []
 #Реализуем возможность ввода неограниченного числа заголовков используя бесконечный цикл
 while True:
     title_ = input('Введите заголовок (или оставьте пустым для завершения): ')
@@ -16,4 +18,7 @@ while True:
         note_titles.append(title_)
 #Цикл окончен. Выводим список заголовков
 print("Ввод данных закончен. Список заголовков:")
-print(note_titles)
+counter = 0
+for note in note_titles:
+    print(f"Заголовок №{note}: {note_titles[counter]}")
+    counter = counter + 1
