@@ -20,7 +20,7 @@ notes = [
     }
 ]
 
-# Вывод списка заметок
+# Функция вывода списка заметок
 def print_notes(notes):
     for note in notes:
         print(f"{note['id']}. Имя: {note['username']}")
@@ -54,10 +54,7 @@ else:
     else:
         # Вывод заметок, которые будут удалены
         print("\nСледующие заметки будут удалены:")
-        for note in notes_to_delete:
-            print(f"{note['id']}. Имя: {note['username']}")
-            print(f"   Заголовок: {note['title']}")
-            print(f"   Описание: {note['description']}\n")
+        print_notes(notes_to_delete)
 
         # Запрос подтверждения удаления
         confirm = input("Вы уверены, что хотите удалить эти заметки? (да/нет): ")
