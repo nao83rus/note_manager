@@ -5,7 +5,7 @@ from datetime import datetime
 notes = {}
 
 # Функция добавления заметки
-def create_note(notes):
+def create_note():
     # heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
     username = input("ВВведите имя пользователя: ").strip()
     title = input("Введите заголовок заметки: ").strip()
@@ -45,24 +45,16 @@ def create_note(notes):
     # Добавляем текущую дату в качестве даты создания
     created_date = datetime.now().date()
 
-    notes = {"username": username, "title": title,
+    notes = {"username": username,
+            "title": title,
              "description": description,
              "status": status,
              "created_date": created_date,
              "deadline_date": deadline_date}
-    print(type(notes), notes)
     return notes
 
-create_note(notes)
-print(type(notes), notes)
-# Выводим список созданных заметок на экран
-counter = 1
-for id, note in notes:
-    print(f"Заметка {counter}.")
-    print(f"        Имя: {note['username']}")
-    print(f"        Заголовок: {note['title']}")
-    print(f"        Описание: {note['description']}")
-    print(f"        Статус: {note['status']}")
-    print(f"        Дата создания: {note['created_date']}")
-    print(f"        Дедлайн: {note['deadline_date']}")
-    counter = counter + 1
+notes = create_note()
+print("Наша заметка")
+for id, note in notes.items():
+    print(f"    {id}: {note}")
+
