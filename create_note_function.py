@@ -53,8 +53,8 @@ def create_note():
              "deadline_date": deadline_date}
     return notes
 
-notes = create_note()
+new_notes = create_note()
 print("Наша заметка")
-for id, note in notes.items():
+for id, note in new_notes.items():
     print(f"    {id}: {note}")
 
