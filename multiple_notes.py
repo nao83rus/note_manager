@@ -51,7 +51,7 @@ while True:
                     if datetime.strptime(deadline_tmp, "%d-%m-%Y"):
                         deadline_date = datetime.strptime(deadline_tmp, "%d-%m-%Y")
                         break
-                if created_tmp[7] == '-':
+                if deadline_tmp[7] == '-':
                     if datetime.strptime(deadline_tmp, "%Y-%m-%d"):
                         deadline_date = datetime.strptime(deadline_tmp, "%Y-%m-%d")
                         break

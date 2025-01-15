@@ -1,17 +1,19 @@
 # create_note_function.py Grade 1. Этап 3: Задание 1 Напишите функцию для создания новой заметки и возврата словаря.
 from datetime import datetime
 
-# Создаём пустой список заметок
-notes = []
+# Создаём пустой словарь заметок
+notes = {}
 
 # Функция добавления заметки
-def create_note():
-    heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
-    username = input("ВВведите имя пользователя: ")
-    content = input("Введите заголовок заметки: ")
-    description = input("Введите описание заметки: ")
+def create_note(notes):
+    # heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
+    username = input("ВВведите имя пользователя: ").strip()
+    title = input("Введите заголовок заметки: ").strip()
+    description = input("Введите описание заметки: ").strip()
+
+    # Запрашиваем ввод статуса и проверяем корректность ввода
     while True:
-        status = input("Введите статус заметки (1. новая, 2. в процессе, 3. выполнено): ")
+        status = input("Введите статус заметки (1. новая, 2. в процессе, 3. выполнено): ").strip()
         status = status.lower()
         # Проверяем корректность ввода статуса
         if status == '1' or status.lower() == 'новая':
@@ -25,50 +27,37 @@ def create_note():
             break
         else:
             print("Введён неверный статус, попробуйте еще раз.")
+
+    # Запрашиваем дату дедлайна и проверяем на корректность
     while True:
         try:
-            created_tmp = input('Введите дату создания (ДД-ММ-ГГГГ или ГГГГ-ММ-ДД): ')
-            if created_tmp[5] == '-':
-                if datetime.strptime(created_tmp, "%d-%m-%Y"):
-                    created_date = datetime.strptime(created_tmp, "%d-%m-%Y")
-                    break
-            if created_tmp[7] == '-':
-                if datetime.strptime(created_tmp, "%Y-%m-%d"):
-                    created_date = datetime.strptime(created_tmp, "%Y-%m-%d")
-                    break
+            deadline_tmp = input('Введите дату дедлайна (ГГГГ-ММ-ДД): ')
+            if datetime.strptime(deadline_tmp, "%Y-%m-%d"):
+                deadline_date = datetime.strptime(deadline_tmp, "%Y-%m-%d").date()
+                break
         except ValueError:
             print("Введена некорректная дата, попробуйте ещё раз.")
         except Exception as e:
             # Обработка прочих ошибок
             print(f"Произошла непредвиденная ошибка: {str(e)}")
             print("Пожалуйста, попробуйте снова.")
-    while True:
-        try:
-            deadline_tmp = input('Введите дату дедлайна (ДД-ММ-ГГГГ или ГГГГ-ММ-ДД): ')
-            if deadline_tmp[5] == '-':
-                if datetime.strptime(deadline_tmp, "%d-%m-%Y"):
-                    deadline_date = datetime.strptime(deadline_tmp, "%d-%m-%Y")
-                    break
-            if created_tmp[7] == '-':
-                if datetime.strptime(deadline_tmp, "%Y-%m-%d"):
-                    deadline_date = datetime.strptime(deadline_tmp, "%Y-%m-%d")
-                    break
-        except ValueError:
-            print("Введена некорректная дата, попробуйте ещё раз.")
-        except Exception as e:
-            # Обработка прочих ошибок
-            print(f"Произошла непредвиденная ошибка: {str(e)}")
-            print("Пожалуйста, попробуйте снова.")
-    note_data = [username, content, description, status, created_date.date(), deadline_date.date()]
-    note = dict(zip(heading, note_data))
-    notes.append(note)
+
+    # Добавляем текущую дату в качестве даты создания
+    created_date = datetime.now().date()
+
+    notes = {"username": username, "title": title,
+             "description": description,
+             "status": status,
+             "created_date": created_date,
+             "deadline_date": deadline_date}
+    print(type(notes), notes)
     return notes
 
-create_note()
-print(notes)
+create_note(notes)
+print(type(notes), notes)
 # Выводим список созданных заметок на экран
 counter = 1
-for note in notes:
+for id, note in notes:
     print(f"Заметка {counter}.")
     print(f"        Имя: {note['username']}")
     print(f"        Заголовок: {note['title']}")
