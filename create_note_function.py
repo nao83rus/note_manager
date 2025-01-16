@@ -1,12 +1,12 @@
 # create_note_function.py Grade 1. Этап 3: Задание 1 Напишите функцию для создания новой заметки и возврата словаря.
 from datetime import datetime
 
-# Создаём пустой словарь заметок
-notes = {}
+# Создаём пустой список заметок
+notes = []
 
 # Функция добавления заметки
 def create_note():
-    # heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
+    heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
     username = input("ВВведите имя пользователя: ").strip()
     title = input("Введите заголовок заметки: ").strip()
     description = input("Введите описание заметки: ").strip()
@@ -44,17 +44,16 @@ def create_note():
 
     # Добавляем текущую дату в качестве даты создания
     created_date = datetime.now().date()
-
-    notes = {"username": username,
-            "title": title,
-             "description": description,
-             "status": status,
-             "created_date": created_date,
-             "deadline_date": deadline_date}
+    note_data = [username, title, description, status, created_date, deadline_date]
+    note = dict(zip(heading, note_data))
+    notes.append(note)
     return notes
 
 new_notes = create_note()
-print("Наша заметка")
-for id, note in new_notes.items():
-    print(f"    {id}: {note}")
 
+# Выводим заметку
+for index, note in enumerate(new_notes, start=1):
+     print(f"Заметка номер {index}")
+     print(type(note), note)
+     for key, value in note.items():
+          print(f"{key}: {value}")
