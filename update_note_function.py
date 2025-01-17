@@ -2,9 +2,6 @@
 import datetime
 from datetime import date
 
-from greetings import issue_date
-
-
 # Функция обновления заметки
 def update_note(editable_note):
     # Список полей (ключей в словаре)
@@ -72,6 +69,7 @@ if __name__ == "__main__":
         }
     ]
     # Покажем имеющиеся заметки
+    print("Имеются следующие заметки:")
     for index, note in enumerate(notes, start= 1):
         print(f" \nЗаметка номер {index}")
         for key, value in note.items():
