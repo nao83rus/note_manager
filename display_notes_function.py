@@ -25,24 +25,24 @@ def display_notes(notes):
                 print("Список заметок:")
                 counter = 1
                 for note in notes:
-                    print(f"Заметка {counter}.")
-                    print(f"{Fore.GREEN}        Имя пользователя: {note['username']}")
-                    print(f"{Fore.YELLOW}        Заголовок: {note['title']}")
-                    print(f"{Fore.MAGENTA}        Описание: {note['content']}")
-                    print(f"{Fore.BLUE}        Статус: {note['status']}")
-                    print(f"{Fore.LIGHTCYAN_EX}        Дата создания: {note['created_date']}")
-                    print(f"{Fore.RED}        Дедлайн: {note['issue_date']}")
-                    print(f"{Fore.LIGHTGREEN_EX}_______________________________________________")
+                    print(f"""Заметка {counter}.
+                    {Fore.GREEN}Имя пользователя: {note['username']}
+                    {Fore.YELLOW}Заголовок: {note['title']}
+                    {Fore.MAGENTA}Описание: {note['content']}
+                    {Fore.BLUE}Статус: {note['status']}
+                    {Fore.LIGHTCYAN_EX}Дата создания: {note['created_date']}
+                    {Fore.RED}Дедлайн: {note['issue_date']}
+                    {Fore.LIGHTGREEN_EX}_______________________________________________""")
                     counter = counter + 1
             break
         elif answer == 1:
             print("Список заголовков заметок с дедлайном:")
             counter = 1
             for note in notes:
-                print(f"Заметка {counter}.")
-                print(f"{Fore.RED}        Заголовок: {note['title']}")
-                print(f"{Fore.GREEN}        Дедлайн: {note['issue_date']}")
-                print(f"{Fore.BLUE}_______________________________________________")
+                print(f"""Заметка {counter}.
+                {Fore.RED}Заголовок: {note['title']}
+                {Fore.GREEN}Дедлайн: {note['issue_date']}
+                {Fore.BLUE}_______________________________________________""")
                 counter = counter + 1
             break
         else:
