@@ -32,8 +32,6 @@ def search_notes(notes, keyword=None, status=None):
         if keyword_creteria == True and status_creteria == True:
             found_notes.append(note)
     print_result(found_notes)
-    # Возвращаем список найденных заметок
-    # return found_notes
 
 # Функция вывода результата
 def print_result(found_notes):
