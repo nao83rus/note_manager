@@ -1,14 +1,16 @@
+Grade 1. Этап 3
+1. create_note_function.py: Функция создания заметки
+2. update_note_function.py: Функция обновления заметки
+3. display_notes_function.py: Функция отображения заметок
+4. search_notes_function.py: Функция поиска заметок
+5. menu.py: Меню действий
+
 Grade 1. Этап 2
-
-add_titles_loop.py Grade 1. Этап 2: Задание 1 Цикл для добавления заголовков
-
-update_status.py Grade 1. Этап 2: Задание 2 Проверка и обновление статуса заметки
-
-check_deadline.py Grade 1. Этап 2: Задание 3 Проверка дедлайна
-
-multiple_notes.py Grade 1. Этап 2: Задание 4 Реализуем возможность создания и хранения нескольких заметок в списке.
-
-delete_note.py Grade 1. Этап 2: Задание 5 Удаление заметок
+1. add_titles_loop.py Цикл для добавления заголовков
+2. update_status.py Проверка и обновление статуса заметки
+3. check_deadline.py Проверка дедлайна
+4. multiple_notes.py Реализуем возможность создания и хранения нескольких заметок в списке.
+5. delete_note.py Удаление заметок
 
 Grade 1. Этап 1
 
