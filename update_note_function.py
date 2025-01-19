@@ -36,12 +36,12 @@ def update_note(editable_note):
         else:
             editable_note[field] = field_value
             break
-
+    # Выводим отредактированную заметку
     print("\nОтредактированная заметка:")
     for key, value in editable_note.items():
         print(f"{key}: {value}")
-    # return editable_note
 
+# Основное тело программы
 if __name__ == "__main__":
     # Предопределим список заметок
     notes = [
