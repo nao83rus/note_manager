@@ -14,12 +14,12 @@ def search_notes(notes, keyword=None, status=None):
         if keyword is not None:  # сравнение по ссылки (объект один и тот же)
             for field in fields_for_search:
 
-                print("keyword: ",keyword, type(keyword))
-                print("value: ",note[field].lower(), type(note[field].lower()))
+                # print("keyword: ",keyword, type(keyword))
+                # print("value: ",note[field].lower(), type(note[field].lower()))
                 # if note[field].lower() == keyword:
-                if keyword in note[field].lower():
-                    print("Найдено")
+                if keyword in note[field].lower().strip():
                     keyword_creteria = True
+                    break
                 else:
                     keyword_creteria = False
         if status is not None:
@@ -54,10 +54,10 @@ if __name__ == '__main__':
             'status': 'выполнена', 'created_date': date(2025, 1, 8), 'issue_date': date(2025, 1, 21)}
     ]
     found_notes = [] # список с найденными заметками
-    keyword = input("Введите слово для поиска в полях Имя, Заголовок, Описание: ").lower()
+    keyword = input("Введите слово или его часть для поиска в полях Имя, Заголовок, Описание: ").lower().strip()
     if keyword == '':
         keyword = None
-    status = input("Введите статус для поиска: ").lower()
+    status = input("Введите статус для поиска: ").lower().strip()
     if status == '':
         status = None
     search_notes(notes, keyword, status)
