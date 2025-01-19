@@ -5,6 +5,7 @@ from colorama import init, Fore, Style
 
 # Функция поиска заметок
 def search_notes(notes, keyword=None, status=None):
+    found_notes = []  # список с найденными заметками
     # Список с полями в которых будем осуществлять поиск
     fields_for_search = ["title", "content", "username"]
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
         {'username': 'Алексей', 'title': 'Встреча', 'content': 'Встреча с друзьями',
             'status': 'выполнена', 'created_date': date(2025, 1, 8), 'issue_date': date(2025, 1, 21)}
     ]
-    found_notes = [] # список с найденными заметками
+    # found_notes = [] # список с найденными заметками
     keyword = input("Введите слово или его часть для поиска в полях Имя, Заголовок, Описание: ").lower().strip()
     if keyword == '':
         keyword = None
