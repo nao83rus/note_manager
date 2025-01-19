@@ -31,12 +31,13 @@ def search_notes(notes, keyword=None, status=None):
 
         if keyword_creteria == True and status_creteria == True:
             found_notes.append(note)
+    print_result(found_notes)
     # Возвращаем список найденных заметок
-    return found_notes
+    # return found_notes
 
 # Функция вывода результата
 def print_result(found_notes):
-    if found_notes.__len__() == 0:
+    if len(found_notes) == 0:
         print(f"{Fore.BLUE}Список найденных заметок пуст:")
     else:
         print(f"{Fore.BLUE}Список найденных заметок:")
@@ -88,6 +89,3 @@ if __name__ == '__main__':
         else:
             print("Введено неверное значение. Попробуйте ещё раз.")
     search_notes(notes, keyword, status)
-    print_result(found_notes)
-
-
