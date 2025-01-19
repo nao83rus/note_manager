@@ -17,10 +17,10 @@ def update_note(editable_note):
 
     # Получим новое значение поля
     while True:
-        field_value = input(f"Введите новое значение поля {field}: ")
+        field_value = input(f"Введите новое значение поля {field}: ").lower().strip()
         # Проверим поля ststus и issue_date на корректность
         if field == 'status':
-            if field_value.strip() == 'новая' or field_value.strip() == 'в процессе' or field_value.strip() == 'отложено':
+            if field_value == 'новая' or field_value == 'в процессе' or field_value == 'отложено':
                 editable_note[field] = field_value.strip()
                 break
             else:
