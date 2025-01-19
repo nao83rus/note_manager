@@ -15,13 +15,26 @@ def delete_note(notes):
         display_notes(notes)
         index = int(input("Введите номер заметки для обновления: ")) - 1
         if 0 <= index < len(notes):
-            del_notes = notes.pop(index)
+            answer_del = input(f"Вы действительно хотите удалить заметку {index+1} (да/нет)").strip().lower()
+            if answer_del == "да":
+                del_notes = notes.pop(index)
+                print(del_notes)
+                print(f'Введено "{answer_del}".')
+            else:
+                print(f'Введено "{answer_del}". Заметка не удалена.')
+                return
         else:
             print("Неверный номер заметки.")
     else:
         print("Список заметок пуст.")
     print(f"Удалена заметка номер {index+1}")
-    display_notes(notes)
+    print(f"{Fore.GREEN} Имя пользователя: {del_notes['username']}")
+    print(f"{Fore.YELLOW} Заголовок: {del_notes['title']}")
+    print(f"{Fore.MAGENTA} Описание: {del_notes['content']}")
+    print(f"{Fore.BLUE} Статус: {del_notes['status']}")
+    print(f"{Fore.LIGHTCYAN_EX} Дата создания: {del_notes['created_date']}")
+    print(f"{Fore.RED} Дедлайн: {del_notes['issue_date']}")
+    print(f"{Fore.LIGHTGREEN_EX}_______________________________________________")
     return notes
 
 def display_menu(notes):
