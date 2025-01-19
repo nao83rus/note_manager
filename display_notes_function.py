@@ -26,13 +26,13 @@ def display_notes(notes):
                 counter = 1
                 for note in notes:
                     print(f"""Заметка {counter}.
-                    {Fore.GREEN}Имя пользователя: {note['username']}
-                    {Fore.YELLOW}Заголовок: {note['title']}
-                    {Fore.MAGENTA}Описание: {note['content']}
-                    {Fore.BLUE}Статус: {note['status']}
-                    {Fore.LIGHTCYAN_EX}Дата создания: {note['created_date']}
-                    {Fore.RED}Дедлайн: {note['issue_date']}
-                    {Fore.LIGHTGREEN_EX}_______________________________________________""")
+    {Fore.GREEN}Имя пользователя: {note['username']}
+    {Fore.YELLOW}Заголовок: {note['title']}
+    {Fore.MAGENTA}Описание: {note['content']}
+    {Fore.BLUE}Статус: {note['status']}
+    {Fore.LIGHTCYAN_EX}Дата создания: {note['created_date']}
+    {Fore.RED}Дедлайн: {note['issue_date']}
+    {Fore.LIGHTGREEN_EX}_______________________________________________""")
                     counter = counter + 1
             break
         elif answer == 1:
@@ -40,9 +40,9 @@ def display_notes(notes):
             counter = 1
             for note in notes:
                 print(f"""Заметка {counter}.
-                {Fore.RED}Заголовок: {note['title']}
-                {Fore.GREEN}Дедлайн: {note['issue_date']}
-                {Fore.BLUE}_______________________________________________""")
+{Fore.RED}Заголовок: {note['title']}
+{Fore.GREEN}Дедлайн: {note['issue_date']}
+{Fore.BLUE}_______________________________________________""")
                 counter = counter + 1
             break
         else:
