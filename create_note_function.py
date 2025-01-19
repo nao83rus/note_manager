@@ -2,7 +2,7 @@
 from datetime import datetime
 
 # Функция добавления заметки
-def create_note():
+def create_note(notes):
     heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
     username = input("ВВведите имя пользователя: ").strip()
     title = input("Введите заголовок заметки: ").strip()
@@ -49,10 +49,10 @@ def create_note():
 if __name__ == "__main__":
     # Создаём пустой список заметок
     notes = []
-    new_notes = create_note()
+    create_note(notes)
 
     # Выводим заметку
-    for index, note in enumerate(new_notes, start=1):
+    for index, note in enumerate(notes, start=1):
          print(f"\nЗаметка номер {index}")
          for key, value in note.items():
               print(f"{key}: {value}")
