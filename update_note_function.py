@@ -39,8 +39,9 @@ def update_note(editable_note):
             except ValueError:
                 print("Введено неверное значение даты. Введите: ГГГГ-ММ-ДД")
                 # return False
-    else:
-        editable_note[field] = field_value
+        else:
+            editable_note[field] = field_value
+            break
     return editable_note
 
 if __name__ == "__main__":
