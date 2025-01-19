@@ -9,14 +9,8 @@ def update_note(editable_note):
     while True:
         # Получаем поле для изменения
         field = input(f"выберите поле для обновления: ")
-        for note in notes:
-            current_key = note.keys()
-            for key in current_key:
-                list_key.append(key)
-            break
-        # Проверяем корректность ввода поля для изменения
-        if field not in list_key:
-            # Нет такого поля (ключа) - запрашиваем еще раз
+        current_key = list(editable_note.keys())
+        if field not in current_key:
             print("Выбрано неверное поле. Попробуйте еще раз")
         else:
             break
@@ -78,10 +72,9 @@ if __name__ == "__main__":
 
     # Получаем заметку для изменения
     while True:
-        tmp_number = int(input(f"\nКакую заметку будем менять? Введите номер: "))
+        note_number = int(input(f"\nКакую заметку будем менять? Введите номер: "))-1
         # Проверяем корректность ввода номера заметки
-        if tmp_number >= 0 and tmp_number <= notes.__len__():
-            note_number = tmp_number - 1
+        if 0 <= note_number < len(notes):
             editable_note = notes[note_number]
             break
         else:
