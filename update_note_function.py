@@ -36,7 +36,11 @@ def update_note(editable_note):
         else:
             editable_note[field] = field_value
             break
-    return editable_note
+
+    print("\nОтредактированная заметка:")
+    for key, value in editable_note.items():
+        print(f"{key}: {value}")
+    # return editable_note
 
 if __name__ == "__main__":
     # Предопределим список заметок
@@ -81,6 +85,3 @@ if __name__ == "__main__":
             print("Введено неверное значение. Попробуйте еще раз.")
 
     update_note(editable_note)
-    print("\nОтредактированная заметка:")
-    for key, value in editable_note.items():
-        print(f"{key}: {value}")
