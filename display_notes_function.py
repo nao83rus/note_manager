@@ -7,7 +7,7 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 def display_notes(notes):
-    answer_sort = input("Сделать сортировку по дате дедлайна (да/нет)?")
+    answer_sort = input("Сделать сортировку по дате дедлайна (да / (нет или оставьте поле пустым)?")
     if answer_sort == 'да':
         sorted_notes = sorted(notes, key=lambda x: x['issue_date'])
         notes = sorted_notes
@@ -47,6 +47,7 @@ def display_notes(notes):
             break
         else:
             print("Введено неверное значение. Попробуйте ещё раз")
+    return notes
 
 if __name__ == "__main__":
     # Предопределённый список заметок
