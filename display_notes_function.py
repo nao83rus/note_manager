@@ -2,6 +2,7 @@
 import datetime
 from datetime import date
 from colorama import init, Fore, Style
+from textwrap import dedent
 
 # Инициализация библиотеки colorama
 init(autoreset=True)
@@ -25,24 +26,28 @@ def display_notes(notes):
                 print("Список заметок:")
                 counter = 1
                 for note in notes:
-                    print(f"""Заметка {counter}.
-    {Fore.GREEN}Имя пользователя: {note['username']}
-    {Fore.YELLOW}Заголовок: {note['title']}
-    {Fore.MAGENTA}Описание: {note['content']}
-    {Fore.BLUE}Статус: {note['status']}
-    {Fore.LIGHTCYAN_EX}Дата создания: {note['created_date']}
-    {Fore.RED}Дедлайн: {note['issue_date']}
-    {Fore.LIGHTGREEN_EX}_______________________________________________""")
+                    massege = (f"""
+                    Заметка {counter}.
+                    {Fore.GREEN}Имя пользователя: {note['username']}
+                    {Fore.YELLOW}Заголовок: {note['title']}
+                    {Fore.MAGENTA}Описание: {note['content']}
+                    {Fore.BLUE}Статус: {note['status']}
+                    {Fore.LIGHTCYAN_EX}Дата создания: {note['created_date']}
+                    {Fore.RED}Дедлайн: {note['issue_date']}
+                    {Fore.LIGHTGREEN_EX}_______________________________________________""")
+                    print(dedent(massege))
                     counter = counter + 1
             break
         elif answer == 1:
             print("Список заголовков заметок с дедлайном:")
             counter = 1
             for note in notes:
-                print(f"""Заметка {counter}.
-{Fore.RED}Заголовок: {note['title']}
-{Fore.GREEN}Дедлайн: {note['issue_date']}
-{Fore.BLUE}_______________________________________________""")
+                massege = (f"""
+                Заметка {counter}.
+                {Fore.RED}Заголовок: {note['title']}
+                {Fore.GREEN}Дедлайн: {note['issue_date']}
+                {Fore.BLUE}_______________________________________________""")
+                print(dedent(massege))
                 counter = counter + 1
             break
         else:
