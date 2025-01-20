@@ -49,7 +49,7 @@ def create_note(notes):
 if __name__ == "__main__":
     # Создаём пустой список заметок
     notes = []
-    create_note(notes)
+    notes = create_note(notes)
 
     # Выводим заметку
     for index, note in enumerate(notes, start=1):
