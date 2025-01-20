@@ -1,3 +1,6 @@
+Grade 1. Этап 4: 
+1. sve_notes_to_file.py: Сохранение заметок в файл
+
 Grade 1. Этап 3
 1. create_note_function.py: Функция создания заметки
 2. update_note_function.py: Функция обновления заметки
