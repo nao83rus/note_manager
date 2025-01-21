@@ -3,14 +3,7 @@ from datetime import date
 
 def save_notes_to_file(notes, filename):
     # Открываем файл для записи
-    # file = open(filename, 'w', encoding='utf-8')
     with open(filename, 'w', encoding='utf-8') as file:  # 'w' — создаем файл если нету, и перезаписыавем содержимое
-
-        # for note in notes:
-        #     file.write('_____\n')
-        #     for key, value in note.items():
-        #         file.write(f"{key}: {value}\n")
-
         for note in notes:
             file.write(f"Имя пользователя: {note['username']}\n")
             file.write(f"Заголовок: {note['title']}\n")
@@ -19,10 +12,6 @@ def save_notes_to_file(notes, filename):
             file.write(f"Дата создания: {note['created_date']}\n")
             file.write(f"Дедлайн: {note['issue_date']}\n")
             file.write(f"_____\n")
-
-    # file.close()
-
-
 
 if __name__ == "__main__":
     notes = [
