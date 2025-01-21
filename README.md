@@ -3,6 +3,7 @@ Grade 1. Этап 4:
 2. load_notes_from_file.py: Загрузка заметок из файла
 3. Обработка ошибок при работе с файлами из пунктов 1 и 2
 4. append_notes_to_file.py Добавление данных в файл
+5. save_notes_json.py Выбор формата файла
 
 Grade 1. Этап 3
 1. create_note_function.py: Функция создания заметки
