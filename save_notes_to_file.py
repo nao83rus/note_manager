@@ -1,17 +1,24 @@
 # save_notes_to_file.py Grade 1. Этап 4: Задание 1 Сохранение заметок в файл
 from datetime import date
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 def save_notes_to_file(notes, filename):
-    # Открываем файл для записи
-    with open(filename, 'w', encoding='utf-8') as file:  # 'w' — создаем файл если нету, и перезаписыавем содержимое
-        for note in notes:
-            file.write(f"Имя пользователя: {note['username']}\n")
-            file.write(f"Заголовок: {note['title']}\n")
-            file.write(f"Описание: {note['content']}\n")
-            file.write(f"Статус: {note['status']}\n")
-            file.write(f"Дата создания: {note['created_date']}\n")
-            file.write(f"Дедлайн: {note['issue_date']}\n")
-            file.write(f"_____\n")
+    try:
+        # Открываем файл для записи
+        with open(filename, 'w', encoding='utf-8') as file:  # 'w' — создаем файл если нету, и перезаписыавем содержимое
+            for note in notes:
+                file.write(f"Имя пользователя: {note['username']}\n")
+                file.write(f"Заголовок: {note['title']}\n")
+                file.write(f"Описание: {note['content']}\n")
+                file.write(f"Статус: {note['status']}\n")
+                file.write(f"Дата создания: {note['created_date']}\n")
+                file.write(f"Дедлайн: {note['issue_date']}\n")
+                file.write(f"_____\n")
+    except UnicodeError:
+        print(f"{Fore.RED}Не удалось декодировать файл.")
+    except PermissionError:
+        print(f"{Fore.RED}Ошибка доступа к файлу.")
 
 if __name__ == "__main__":
     notes = [

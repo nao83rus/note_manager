@@ -1,6 +1,6 @@
 # load_notes_from_file.py Grade 1. Этап 4: Задание 2 Загрузка заметок из файла
-from colorama import init, Fore, Style
 from transliterate import translit
+from colorama import init, Fore, Style
 init(autoreset=True)
 
 def load_notes_from_file(filename):
@@ -31,8 +31,14 @@ def load_notes_from_file(filename):
                         note[key.strip()] = value.strip()
             else:
                 print(f"{Fore.RED}Файл {filename} пуст.")
-    except:
-        print(f"{Fore.RED}Возможно, файл отсутствует.")
+    except FileNotFoundError:
+        file = open(filename,mode='w', encoding='utf-8')
+        file.close()
+        print(f"{Fore.RED}Файл не найден. Создали новый файл.")
+    except UnicodeError:
+        print(f"{Fore.RED}Не удалось декодировать файл.")
+    except PermissionError:
+        print(f"{Fore.RED}Ошибка доступа к файлу.")
     return notes
 
 if __name__ == "__main__":
