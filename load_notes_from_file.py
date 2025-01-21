@@ -1,4 +1,4 @@
-# load_notes_from_file.py Grade 1. Этап 4: Задание 2 Загрузка заметок из файла
+# append_notes_to_file.py Grade 1. Этап 4: Задание 4 Добавление данных в файл
 from transliterate import translit
 from colorama import init, Fore, Style
 init(autoreset=True)
