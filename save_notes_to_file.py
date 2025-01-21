@@ -7,7 +7,7 @@ def save_notes_to_file(notes, filename):
     with open(filename, 'w', encoding='utf-8') as file:  # 'w' — создаем файл если нету, и перезаписыавем содержимое
 
         # for note in notes:
-        #     file.write('___________________________\n')
+        #     file.write('_____\n')
         #     for key, value in note.items():
         #         file.write(f"{key}: {value}\n")
 
@@ -18,7 +18,7 @@ def save_notes_to_file(notes, filename):
             file.write(f"Статус: {note['status']}\n")
             file.write(f"Дата создания: {note['created_date']}\n")
             file.write(f"Дедлайн: {note['issue_date']}\n")
-            file.write(f"_______________________________________________\n")
+            file.write(f"_____\n")
 
     # file.close()
 
