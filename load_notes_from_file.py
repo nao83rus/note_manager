@@ -12,23 +12,27 @@ def load_notes_from_file(filename):
             if len(lines) > 0:
                 # инициализируем пустой словарь
                 note = {}
+                # инициализируем список ключей
+                note_key = []
                 # итерируем по каждой строке и разбиваем пары ключ-значение
                 for line in lines:
                     # Проверяем на разделитель заметок, если есть - добавляем в словарь
-                    if '__' in line:
-                        notes.append(note)
-                    # Проверяем ':' если его нет - пропускаем выполнение
-                    elif ':' not in line:
-                        continue
-                    else:
+                    if ':' in line:
                         # разделяем каждую строку по двоеточию
                         key, value = line.strip().split(':')
-                        # Транслитирируем кириллицу в латиницу
-                        key = translit(key.lower(), language_code='ru', reversed=True)
-                        # В ключе вместо пробела поставим '_'
-                        key = key.replace(' ', '_')
-                        # добавляем в словарь
-                        note[key.strip()] = value.strip()
+                        if key not in note_key:
+                            # Добавим ключ в список ключей для отслеживания повторений
+                            note_key.append(key)
+                            # Транслитирируем кириллицу в латиницу
+                            key = translit(key.lower(), language_code='ru', reversed=True)
+                            # В ключе вместо пробела поставим '_'
+                            key = key.replace(' ', '_')
+                            # добавляем в словарь
+                            note[key.strip()] = value.strip()
+                        else:
+                            # Такой ключ уже есть. Добавляем словарь в список и очищаем список ключей
+                            note_key = []
+                            notes.append(note)
             else:
                 print(f"{Fore.RED}Файл {filename} пуст.")
     except FileNotFoundError:
