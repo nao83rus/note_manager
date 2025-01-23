@@ -20,5 +20,5 @@ while True:
 print("Ввод данных закончен. Список заголовков:")
 counter = 0
 for note in note_titles:
-    print(f"Заголовок №{note}: {note_titles[counter]}")
+    print(f"Заголовок №{counter + 1}: {note_titles[counter]}")
     counter = counter + 1
