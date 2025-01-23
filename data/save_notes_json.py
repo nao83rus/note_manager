@@ -23,6 +23,7 @@ if __name__ == "__main__":
          'status': 'новая', 'created_date': '2025-1-10', 'issue_date': '2025-1-30'},
         {'username': 'Мария', 'title': 'Учеба', 'content': 'Подготовиться к экзамену',
          'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
-
+        {'username': 'Игорь', 'title': 'Спорт', 'content': 'Подготовиться к соревнованиям',
+         'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
     ]
     save_notes_json(notes, 'netes.json')

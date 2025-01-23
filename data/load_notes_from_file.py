@@ -35,8 +35,8 @@ def load_notes_from_file(filename):
                             note[key.strip()] = value.strip()
                         else:
                             # Такой ключ уже есть. Добавляем словарь в список и очищаем список ключей
-                            note_key = []
                             notes.append(note)
+                            note_key = []
             else:
                 print(f"{Fore.RED}Файл {filename} пуст.")
     except FileNotFoundError:
