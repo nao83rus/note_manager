@@ -1,6 +1,6 @@
 # create_note_function.py Grade 1. Этап 3: Задание 1 Функция создания новой заметки и возврата словаря.
 from datetime import datetime
-
+from stage_5.utils.date_validator import validate_date
 # Функция добавления заметки
 def create_note(notes):
     heading = ["username", "title", "description", "status", "created_date", "deadline_date"]
@@ -29,7 +29,8 @@ def create_note(notes):
     while True:
         try:
             deadline_tmp = input('Введите дату дедлайна (ГГГГ-ММ-ДД): ')
-            if datetime.strptime(deadline_tmp, "%Y-%m-%d"):
+            if validate_date(deadline_tmp):
+            # if datetime.strptime(deadline_tmp, "%Y-%m-%d"):
                 deadline_date = datetime.strptime(deadline_tmp, "%Y-%m-%d").date()
                 break
         except ValueError:

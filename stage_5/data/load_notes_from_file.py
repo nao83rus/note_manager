@@ -31,8 +31,11 @@ def load_notes_from_file(filename):
                         if verbose_key not in note_key:
                             # Добавим ключ в список ключей для отслеживания повторений
                             note_key.append(verbose_key)
-                            key = translate_table[verbose_key]
-                            note[key.strip()] = value.strip()
+                            try:
+                                key = translate_table[verbose_key]
+                                note[key.strip()] = value.strip()
+                            except Exception:
+                                note[verbose_key.strip()] = value.strip()
                         else:
                             # Такой ключ уже есть. Добавляем словарь в список и очищаем список ключей
                             notes.append(note)
