@@ -1,7 +1,7 @@
 # load_notes_from_file.py Grade 1. Этап 4: Задание 2: Загрузка заметок из файла
 from colorama import init, Fore, Style
 init(autoreset=True)
-
+notes = []
 def load_notes_from_file(filename):
     # инициализируем пустой словарь
     note = {}
@@ -31,6 +31,7 @@ def load_notes_from_file(filename):
                         if verbose_key not in note_key:
                             # Добавим ключ в список ключей для отслеживания повторений
                             note_key.append(verbose_key)
+                            # Попытка: Если проверяемый ключ отсутствует, его не будем транслитерировать и запишем как есть
                             try:
                                 key = translate_table[verbose_key]
                                 note[key.strip()] = value.strip()
@@ -53,7 +54,7 @@ def load_notes_from_file(filename):
     return notes
 
 if __name__ == "__main__":
-    notes = []
+
     load_notes_from_file("notes.txt")
 
     counter = 1
