@@ -51,7 +51,7 @@ def load_notes_from_file(filename):
 
 if __name__ == "__main__":
     notes = []
-    load_notes_from_file("notes.txt")
+    load_notes_from_file("../notes.txt")
 
     counter = 1
     for note in notes:

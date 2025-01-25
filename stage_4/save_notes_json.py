@@ -25,4 +25,4 @@ if __name__ == "__main__":
          'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
 
     ]
-    save_notes_json(notes, 'netes.json')
+    save_notes_json(notes, '../netes.json')

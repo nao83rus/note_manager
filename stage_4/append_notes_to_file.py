@@ -32,4 +32,4 @@ if __name__ == "__main__":
          'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
     ]
 
-    append_notes_to_file(notes, 'notes.txt')
+    append_notes_to_file(notes, '../notes.txt')

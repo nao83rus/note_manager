@@ -40,4 +40,4 @@ if __name__ == "__main__":
          'status': 'выполнена', 'created_date': date(2025, 1, 8), 'issue_date': date(2025, 1, 21)}
     ]
 
-    save_notes_to_file(notes, 'notes.txt')
+    save_notes_to_file(notes, '../notes.txt')
