@@ -1,10 +1,8 @@
 import unittest
-
-from note_manager.data import save_notes_json
-from note_manager.data import load_notes_from_file
+from stage_5.data import save_notes_json
+from stage_5.data import load_notes_from_file
 
 class TestNoteManager(unittest.TestCase):
-
     def test_save_and_load_notes(self):
         notes = [{'username': 'Test', 'title': 'Test Note'}]
         save_notes_json(notes, 'test.json')
@@ -14,3 +12,7 @@ class TestNoteManager(unittest.TestCase):
 if __name__ == '__main__':
 
     unittest.main()
+    # notes = [{'username': 'Test', 'title': 'Test Note'}]
+    # save_notes_json(notes, 'test.json')
+    # loaded_notes = load_notes_from_file('test.json')
+    # print(notes, loaded_notes)
