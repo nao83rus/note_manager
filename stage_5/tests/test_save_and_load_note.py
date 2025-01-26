@@ -15,7 +15,3 @@ class TestNoteManager(unittest.TestCase):
 if __name__ == '__main__':
 
     unittest.main()
-    # notes = [{"username": "Test", "title": "Test Note"}]
-    # save_notes_json(notes, 'test.json')
-    # loaded_notes = load_notes_from_file('test.json')
-    # print(loaded_notes)
