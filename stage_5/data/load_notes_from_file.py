@@ -22,6 +22,7 @@ def load_notes_from_file(filename):
             lines = file.readlines()
             # Проверяем, не пустой ли файл
             if len(lines) > 0:
+                number_note = 0
                 # итерируем по каждой строке и разбиваем пары ключ-значение
                 for line in lines:
                     # Проверяем на разделитель заметок, если есть - добавляем в словарь
@@ -41,8 +42,12 @@ def load_notes_from_file(filename):
                             # Такой ключ уже есть. Добавляем словарь в список и очищаем список ключей
                             notes.append(note)
                             note_key = []
+                            number_note += 1
             else:
                 print(f"{Fore.RED}Файл {filename} пуст.")
+            # Если у нас одна заметка, не будет повторения ключей и она не добавится в список. Исправляем так.
+            if number_note == 0:
+                notes.append(note)
     except FileNotFoundError:
         file = open(filename,mode='w', encoding='utf-8')
         file.close()
