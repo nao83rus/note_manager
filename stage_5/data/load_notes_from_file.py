@@ -37,11 +37,13 @@ def load_notes_from_file(filename):
                                 key = translate_table[verbose_key]
                                 note[key.strip()] = value.strip()
                             except Exception:
+                                # Если ключ записан на английском - оставляем его как есть
                                 note[verbose_key.strip()] = value.strip()
                         else:
                             # Такой ключ уже есть. Добавляем словарь в список и очищаем список ключей
                             notes.append(note)
                             note_key = []
+                            # Увеличиваем номер заметки
                             number_note += 1
             else:
                 print(f"{Fore.RED}Файл {filename} пуст.")
@@ -61,7 +63,7 @@ def load_notes_from_file(filename):
 if __name__ == "__main__":
 
     load_notes_from_file("notes.txt")
-
+    # Выводим наши заметки на экран
     counter = 1
     for note in notes:
         for key, value in note.items():

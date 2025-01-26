@@ -1,6 +1,8 @@
 # update_note_function.py Grade 1. Этап 3: Задание 2 Функция обновления заметки
 import datetime
 from datetime import date
+from stage_5.utils.date_validator import validate_date
+from stage_5.utils.status_validator import validate_status
 
 # Функция обновления заметки
 def update_note(editable_note):
@@ -20,19 +22,29 @@ def update_note(editable_note):
         field_value = input(f"Введите новое значение поля {field}: ").lower().strip()
         # Проверим поля ststus и issue_date на корректность
         if field == 'status':
-            if field_value == 'новая' or field_value == 'в процессе' or field_value == 'отложено':
+            # if field_value == 'новая' or field_value == 'в процессе' or field_value == 'отложено':
+
+            # Сделаем проверку статуса в отдельном модуле
+            if validate_status(field_value):
                 editable_note[field] = field_value.strip()
                 break
             else:
                 print("Введено неверное значение статуса. Введите: новая/в процессе/отложено.")
         elif field == 'issue_date':
-            try:
-                datetime.datetime.strptime(field_value, '%Y-%m-%d')
+
+            # try:
+            #     datetime.datetime.strptime(field_value, '%Y-%m-%d')
+            #     editable_note[field] = field_value
+            #     break
+            # except ValueError:
+            #     print("Введено неверное значение даты. Введите: ГГГГ-ММ-ДД")
+
+            # сделаем проверку даты в отдельном модуле
+            if validate_date(field_value):
                 editable_note[field] = field_value
-                return True
-            except ValueError:
+                break
+            else:
                 print("Введено неверное значение даты. Введите: ГГГГ-ММ-ДД")
-                # return False
         else:
             editable_note[field] = field_value
             break
@@ -50,22 +62,22 @@ if __name__ == "__main__":
             'title': 'Список покупок',
             'content': 'Купить продукты на неделю',
             'status': 'новая',
-            'issue_date': date(2025,1,19)
+            'issue_date': '2025-01-19'
         },
         {
             'username': 'Мария',
             'title': 'Учеба',
             'content': 'Подготовиться к экзамену',
             'status': 'новая',
-            'issue_date': date(2025,1,20)
+            'issue_date': '2025-01-20'
         },
         {
             'username': 'Алексей',
             'title': 'Встреча',
             'content': 'Встреча с друзьями',
             'status': 'новая',
-            'issue_date': date(2025,1,21)
-        }
+            'issue_date': '2025-01-21'
+        },
     ]
     # Покажем имеющиеся заметки
     print("Имеются следующие заметки:")
