@@ -4,3 +4,8 @@ def validate_status(status):
         return True
     else:
         return False
+
+if __name__ == '__main__':
+    # Проверка
+    print(validate_status('отложена'))
+    print(validate_status('просрочена'))

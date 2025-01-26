@@ -3,3 +3,7 @@ import uuid
 
 def generate_unique_id():
     return str(uuid.uuid4())
+
+if __name__ == '__main__':
+    # Проверка
+    print(str(uuid.uuid4()))

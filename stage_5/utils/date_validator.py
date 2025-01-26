@@ -7,3 +7,8 @@ def validate_date(date_str) -> bool:
         return True
     except ValueError:
         return False
+
+if __name__ == '__main__':
+    # Проверка
+    print(f"ГГГГ-ММ-ДД '2025-01-26' {validate_date('2025-01-26')}")
+    print(f"ДД-ММ-ГГГГ '25-01-2026' {validate_date('25-01-2026')}")
