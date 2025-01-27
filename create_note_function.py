@@ -1,6 +1,6 @@
 # create_note_function.py Grade 1. Этап 3: Задание 1 Функция создания новой заметки и возврата словаря.
 from datetime import datetime
-from stage_5.utils.date_validator import validate_date
+from utils.date_validator import validate_date
 # Функция добавления заметки
 def create_note(notes):
     heading = ["username", "title", "description", "status", "created_date", "deadline_date"]

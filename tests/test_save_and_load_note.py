@@ -1,7 +1,7 @@
 # test_save_and_load_notes.py Тест сохранения в файл и загрузки из файла
 import unittest
-from stage_5.data.save_notes_to_file import save_notes_to_file
-from stage_5.data.load_notes_from_file import load_notes_from_file
+from data.save_notes_to_file import save_notes_to_file
+from data.load_notes_from_file import load_notes_from_file
 
 class TestNoteManager(unittest.TestCase):
     def test_save_and_load_notes(self):

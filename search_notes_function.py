@@ -57,21 +57,11 @@ if __name__ == '__main__':
     # Предопределённый список заметок
     notes = [
         {'username': 'Алексей', 'title': 'Список покупок', 'content': 'Купить продукты на неделю',
-            'status': 'новая', 'created_date': date(2025, 1, 10), 'issue_date': date(2025, 1, 30)},
+         'status': 'новая', 'created_date': '2025-1-10', 'issue_date': '2025-1-30'},
         {'username': 'Мария', 'title': 'Учеба', 'content': 'Подготовиться к экзамену',
-            'status': 'в процессе', 'created_date': date(2025, 1, 9), 'issue_date': date(2025, 2, 20)},
-        {'username': 'Игорь', 'title': 'Учеба', 'content': 'Подготовиться к экзамену',
-            'status': 'отложена', 'created_date': date(2025, 1, 10), 'issue_date': date(2025, 2, 25)},
-        {'username': 'Мария', 'title': 'Учеба', 'content': 'Сдать задание',
-            'status': 'новая', 'created_date': date(2025, 1, 18), 'issue_date': date(2025, 1, 20)},
+         'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
         {'username': 'Игорь', 'title': 'Спорт', 'content': 'Подготовиться к соревнованиям',
-            'status': 'отложена', 'created_date': date(2025, 1, 30), 'issue_date': date(2025, 2, 28)},
-        {'username': 'Илья', 'title': 'Авто', 'content': 'Помыть машину',
-            'status': 'новая', 'created_date': date(2025, 1, 20), 'issue_date': date(2025, 2, 21)},
-        {'username': 'Стас', 'title': 'Авто', 'content': 'Заменить масло в двигателе',
-            'status': 'в процессе', 'created_date': date(2025, 1, 16), 'issue_date': date(2025, 1, 23)},
-        {'username': 'Алексей', 'title': 'Встреча', 'content': 'Встреча с друзьями',
-            'status': 'выполнена', 'created_date': date(2025, 1, 8), 'issue_date': date(2025, 1, 21)}
+         'status': 'в процессе', 'created_date': '2025-2-10', 'issue_date': '2025-2-20'},
     ]
     # found_notes = [] # список с найденными заметками
     keyword = input("Введите слово или его часть для поиска в полях Имя, Заголовок, Описание: ").lower().strip()

@@ -1,8 +1,6 @@
 # update_note_function.py Grade 1. Этап 3: Задание 2 Функция обновления заметки
-import datetime
-from datetime import date
-from stage_5.utils.date_validator import validate_date
-from stage_5.utils.status_validator import validate_status
+from utils.date_validator import validate_date
+from utils.status_validator import validate_status
 
 # Функция обновления заметки
 def update_note(editable_note):
