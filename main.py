@@ -56,7 +56,7 @@ def main_menu():
             else:
                 print("Неверный выбор. Попробуйте снова.")
         except ValueError:
-            print("Ошибка: введите число от 1 до 6.")
+            print("Ошибка: введите число от 0 до 9.")
 
 if __name__ == "__main__":
     notes = [
